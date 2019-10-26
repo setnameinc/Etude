@@ -39,9 +39,7 @@ public class DataBase implements DB {
 
     @Override
     public void setUser(int id) {
-        User user = new User(id);
 
-        myRef.child("users").child("id").setValue(user);
     }
 
     private String getSomething(String tag) {
