@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/schedule_main_navigation"
-        android:name="com.setnameinc.etude.schedule.ui.ScheduleFragment"
+        android:name="com.setnameinc.etude.mainschedule.ui.ScheduleFragment"
         android:label="schedule_main"
         tools:layout="@layout/fragment_schedule" />
 
