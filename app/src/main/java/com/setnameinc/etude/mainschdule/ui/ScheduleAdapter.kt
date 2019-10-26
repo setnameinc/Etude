@@ -1,17 +1,44 @@
 package com.setnameinc.etude.mainschdule.ui
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.setnameinc.etude.R
 
-class ScheduleAdapter : ListAdapter<ScheduleItem, ScheduleViewHolder<*>>(DateAdapterDiffCallback()) {
+class ScheduleAdapter
+    : ListAdapter<ScheduleItem, ScheduleViewHolder>(
+    DateAdapterDiffCallback()
+) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder<*> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ScheduleViewHolder = when (viewType) {
+        ScheduleTypes.mainHeaderType ->
+            ScheduleHeaderViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_schedule_main_header, parent, false)
+            )
+        ScheduleTypes.subjectType ->
+            ScheduleSubjectViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_schedule_main_subject, parent, false)
+            )
+        ScheduleTypes.businessType ->
+            ScheduleBusinessViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_schedule_main_business, parent, false)
+            )
+        else ->
+            ScheduleBottomViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_schedule_main_bottom, parent, false)
+            )
     }
 
-    override fun onBindViewHolder(holder: ScheduleViewHolder<*>, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
     override fun getItemViewType(position: Int): Int = getItem(position).type
