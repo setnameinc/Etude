@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#F5F5F5</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="navigationBarColor">#F5F5F5</color>
+    <color name="mainScheduleColor">#4E4DA7</color>
+    <color name="itemDateTextColor">#212121</color>
 </resources>
