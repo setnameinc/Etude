@@ -1,4 +1,4 @@
-package com.setnameinc.etude.mainschdule.ui
+package com.setnameinc.etude.mainschedule.ui
 
 import android.view.View
 

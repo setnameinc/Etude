@@ -1,4 +1,4 @@
-package com.setnameinc.etude.mainschdule.ui
+package com.setnameinc.etude.mainschedule.ui
 
 sealed class ScheduleItem(
     open val type: Int
@@ -28,6 +28,10 @@ sealed class ScheduleItem(
         type = ScheduleTypes.businessType
     )
 
+    class ScheduleAddItem : ScheduleItem(
+        type = ScheduleTypes.addItemType
+    )
+
     override fun equals(other: Any?): Boolean {
         return other.hashCode() == this.hashCode()
                 && other?.javaClass == this.javaClass
@@ -39,4 +43,5 @@ object ScheduleTypes {
     const val mainHeaderType = 0
     const val subjectType = 1
     const val businessType = 2
+    const val addItemType = 3
 }

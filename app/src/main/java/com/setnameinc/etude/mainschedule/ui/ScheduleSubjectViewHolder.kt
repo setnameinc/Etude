@@ -1,7 +1,4 @@
-package com.setnameinc.etude.mainschdule.ui
-
-import android.view.View
-import kotlinx.android.synthetic.main.item_schedule_main_subject.view.*
+package com.setnameinc.etude.mainschedule.ui
 
 /*
 class ScheduleSubjectViewHolder(

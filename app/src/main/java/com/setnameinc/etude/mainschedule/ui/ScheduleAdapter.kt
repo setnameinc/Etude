@@ -1,4 +1,4 @@
-package com.setnameinc.etude.mainschdule.ui
+package com.setnameinc.etude.mainschedule.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +17,7 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
         list.apply {
             clear()
             addAll(localeList)
+            add(ScheduleItem.ScheduleAddItem())
         }
         notifyDataSetChanged()
     }
