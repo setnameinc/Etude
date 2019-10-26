@@ -5,30 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
+        android:id="@+id/mainComponent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#e0203f">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent" />
 
     <FrameLayout
         android:id="@+id/upperComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="com.setnameinc.etude.utils.TopSheetBehavior"
-        app:behavior_peekHeight="56dp">
-
-    </FrameLayout>
+        app:behavior_peekHeight="56dp"/>
 
     <FrameLayout
         android:id="@+id/bottomComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="56dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
-    </FrameLayout>
+        app:behavior_peekHeight="96dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
