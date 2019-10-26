@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.setnameinc.etude.R
-import timber.log.Timber
 
 class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
 
@@ -57,20 +56,23 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
         private var state: ScheduleSubjectStates = ScheduleSubjectStates.COLLAPSED
 
         init {
-            view.setOnClickListener {
-                Timber.i("position = $adapterPosition")
+            view.setOnClickListener { it ->
                 val localeItem = list[adapterPosition] as ScheduleItem.ScheduleSubjectItem
                 if (state == ScheduleSubjectStates.COLLAPSED) {
-                    list.addAll(adapterPosition + 1, localeItem.listOfBaseness)
-                    notifyItemRangeInserted(adapterPosition + 1, adapterPosition + localeItem.listOfBaseness.size)
-                    notifyDataSetChanged()
+                    var count = adapterPosition
+                    localeItem.listOfBaseness.forEach {
+                        list.add(++count, it)
+                        notifyItemInserted(count)
+                    }
                     state = ScheduleSubjectStates.EXPANDED
                 } else {
                     localeItem.listOfBaseness.forEach {
                         list.remove(it)
                     }
-                    /*notifyItemRangeRemoved(adapterPosition - localeItem.listOfBaseness.size, adapterPosition)*/
-                    notifyDataSetChanged()
+                    notifyItemRangeRemoved(
+                        adapterPosition + 1,
+                        adapterPosition + 1 + localeItem.listOfBaseness.size
+                    )
                     state = ScheduleSubjectStates.COLLAPSED
                 }
             }
