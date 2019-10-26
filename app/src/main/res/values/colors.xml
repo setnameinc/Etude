@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#F5F5F5</color>
     <color name="colorAccent">#D81B60</color>
     <color name="navigationBarColor">#F5F5F5</color>
+    <color name="mainScheduleColor">#4E4DA7</color>
+    <color name="itemDateTextColor">#212121</color>
 </resources>
