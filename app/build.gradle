@@ -101,6 +101,7 @@ dependencies {
 
     //ui
     implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
 
     //paging
     implementation 'android.arch.paging:runtime:1.0.1'
