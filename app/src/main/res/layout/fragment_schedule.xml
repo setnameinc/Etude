@@ -8,6 +8,8 @@
     <FrameLayout
         android:id="@+id/mainComponent"
         android:layout_width="match_parent"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="96dp"
         android:layout_height="match_parent" />
 
     <FrameLayout
