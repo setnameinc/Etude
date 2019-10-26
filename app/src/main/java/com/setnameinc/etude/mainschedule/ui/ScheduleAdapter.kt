@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.setnameinc.etude.R
+import kotlinx.android.synthetic.main.item_schedule_main_subject.view.*
 
 class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
 
@@ -81,6 +82,9 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
 
         override fun bind(item: ScheduleItem) {
             val localeItem = item as ScheduleItem.ScheduleSubjectItem
+            if (localeItem.listOfBaseness.isEmpty()){
+                view.sizeTextView.visibility = View.INVISIBLE
+            }
         }
     }
 

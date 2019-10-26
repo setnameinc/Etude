@@ -6,6 +6,6 @@ class ScheduleHeaderViewHolder(
     val view: View
 ) : ScheduleViewHolder(view = view) {
     override fun bind(item: ScheduleItem) {
-
+        //must
     }
 }
