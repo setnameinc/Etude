@@ -1,15 +1,28 @@
 package com.setnameinc.etude.mainschdule.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.setnameinc.etude.R
+import timber.log.Timber
 
-class ScheduleAdapter
-    : ListAdapter<ScheduleItem, ScheduleViewHolder>(
-    DateAdapterDiffCallback()
-) {
+class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
+
+    private val list = arrayListOf<ScheduleItem>()
+
+    fun addList(
+        localeList: List<ScheduleItem>
+    ) {
+        list.apply {
+            clear()
+            addAll(localeList)
+        }
+        notifyDataSetChanged()
+    }
+
+    override fun getItemCount(): Int = list.size
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -37,12 +50,48 @@ class ScheduleAdapter
             )
     }
 
-    override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
-        holder.bind(getItem(position))
+    inner class ScheduleSubjectViewHolder(
+        val view: View
+    ) : ScheduleViewHolder(view = view) {
+
+        private var state: ScheduleSubjectStates = ScheduleSubjectStates.COLLAPSED
+
+        init {
+            view.setOnClickListener {
+                Timber.i("position = $adapterPosition")
+                val localeItem = list[adapterPosition] as ScheduleItem.ScheduleSubjectItem
+                if (state == ScheduleSubjectStates.COLLAPSED) {
+                    list.addAll(adapterPosition + 1, localeItem.listOfBaseness)
+                    notifyItemRangeInserted(adapterPosition + 1, adapterPosition + localeItem.listOfBaseness.size)
+                    notifyDataSetChanged()
+                    state = ScheduleSubjectStates.EXPANDED
+                } else {
+                    localeItem.listOfBaseness.forEach {
+                        list.remove(it)
+                    }
+                    /*notifyItemRangeRemoved(adapterPosition - localeItem.listOfBaseness.size, adapterPosition)*/
+                    notifyDataSetChanged()
+                    state = ScheduleSubjectStates.COLLAPSED
+                }
+            }
+        }
+
+        override fun bind(item: ScheduleItem) {
+            val localeItem = item as ScheduleItem.ScheduleSubjectItem
+        }
     }
 
-    override fun getItemViewType(position: Int): Int = getItem(position).type
+    override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
+        holder.bind(list[position])
+    }
 
+    override fun getItemViewType(position: Int): Int = list[position].type
+
+}
+
+enum class ScheduleSubjectStates {
+    COLLAPSED,
+    EXPANDED
 }
 
 class DateAdapterDiffCallback : DiffUtil.ItemCallback<ScheduleItem>() {

@@ -20,7 +20,7 @@ class ScheduleMainFragment : Fragment(R.layout.component_menu_main) {
             adapter = scheduleAdapter
             layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
         }
-        scheduleAdapter.submitList(
+        scheduleAdapter.addList(
             listOf(
                 ScheduleItem.ScheduleHeaderItem(
                     1,
@@ -32,25 +32,29 @@ class ScheduleMainFragment : Fragment(R.layout.component_menu_main) {
                     "",
                     "",
                     "",
-                    ""
-                ),
-                ScheduleItem.ScheduleBusinessItem(""),
-                ScheduleItem.ScheduleBusinessItem(""),
-                ScheduleItem.ScheduleBusinessItem(""),
-                ScheduleItem.ScheduleBusinessItem(""),
-                ScheduleItem.ScheduleSubjectItem(
                     "",
-                    "",
-                    "",
-                    "",
-                    ""
+                    listOf(
+                        ScheduleItem.ScheduleBusinessItem(""),
+                        ScheduleItem.ScheduleBusinessItem(""),
+                        ScheduleItem.ScheduleBusinessItem(""),
+                        ScheduleItem.ScheduleBusinessItem("")
+                    )
                 ),
                 ScheduleItem.ScheduleSubjectItem(
                     "",
                     "",
                     "",
                     "",
-                    ""
+                    "",
+                    listOf()
+                ),
+                ScheduleItem.ScheduleSubjectItem(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    listOf()
                 )
             )
         )

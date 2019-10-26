@@ -17,7 +17,7 @@ sealed class ScheduleItem(
         val classroom: String,
         val startTime: String,
         val endTime: String,
-        val size: Int
+        val listOfBaseness:List<ScheduleBusinessItem>
     ) : ScheduleItem(
         type = ScheduleTypes.subjectType
     )
