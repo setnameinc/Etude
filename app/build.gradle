@@ -44,6 +44,9 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //profile
+    implementation "de.hdodenhof:circleimageview:1.1.0"
+
     //DI
     implementation "org.kodein.di:kodein-di-generic-jvm:6.2.0"
     implementation "org.kodein.di:kodein-di-framework-android-core:6.2.0"
