@@ -37,7 +37,7 @@ class ScheduleSharedViewModel(
                         listOf(
                             ScheduleBusinessEntity(
                                 1,
-                                "сдать долг"
+                                "экзамен"
                             )
                         )
                     )
