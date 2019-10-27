@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4E4DA7">
+
+    <View
+        android:id="@+id/businessLineView"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="51dp"
+        android:background="#FAFAFA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/closeImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/ic_circle_close"
+        app:layout_constraintBottom_toTopOf="@+id/confirmImageView"
+        app:layout_constraintEnd_toEndOf="@+id/businessLineView"
+        app:layout_constraintStart_toStartOf="@+id/businessLineView" />
+
+    <ImageView
+        android:id="@+id/confirmImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="126dp"
+        android:src="@drawable/ic_circle_confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/businessLineView"
+        app:layout_constraintStart_toStartOf="@+id/businessLineView" />
+
+    <View
+        android:id="@+id/usChoseSubjectView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_subject_background"
+        app:layout_constraintBottom_toBottomOf="@id/ucChoseSubjectTextView"
+        app:layout_constraintEnd_toEndOf="@id/ucChoseSubjectTextView"
+        app:layout_constraintStart_toStartOf="@id/ucChoseSubjectTextView"
+        app:layout_constraintTop_toTopOf="@id/ucChoseSubjectTextView" />
+
+    <TextView
+        android:id="@+id/ucChoseSubjectTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="133dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="3dp"
+        android:text="Выберите предмет"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chosenSubjectTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Математика 1"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/usChoseSubjectView"
+        app:layout_constraintTop_toBottomOf="@id/ucChoseSubjectTextView" />
+
+    <View
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shape_business_oval_2_and_5"
+        app:layout_constraintBottom_toBottomOf="@+id/chosenSubjectTextView"
+        app:layout_constraintEnd_toEndOf="@id/businessLineView"
+        app:layout_constraintStart_toStartOf="@id/businessLineView"
+        app:layout_constraintTop_toTopOf="@+id/chosenSubjectTextView" />
+
+    <View
+        android:id="@+id/usDescriptionView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_subject_background"
+        app:layout_constraintBottom_toBottomOf="@id/ucDescriptionTextView"
+        app:layout_constraintEnd_toEndOf="@id/ucDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@id/ucDescriptionTextView"
+        app:layout_constraintTop_toTopOf="@id/ucDescriptionTextView" />
+
+    <TextView
+        android:id="@+id/ucDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="32dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="3dp"
+        android:text="Придумайте название"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chosenSubjectTextView" />
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        android:hint="Эх..."
+        android:textColorHint="#E0E0E0"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/usDescriptionView"
+        app:layout_constraintTop_toBottomOf="@id/usDescriptionView" />
+
+    <View
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shape_business_oval_2_and_5"
+        app:layout_constraintBottom_toBottomOf="@+id/ucDescriptionTextView"
+        app:layout_constraintEnd_toEndOf="@id/businessLineView"
+        app:layout_constraintStart_toStartOf="@id/businessLineView"
+        app:layout_constraintTop_toTopOf="@+id/ucDescriptionTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

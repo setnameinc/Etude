@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.setnameinc.etude.R
 import kotlinx.android.synthetic.main.item_schedule_main_subject.view.*
 
-class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
+class ScheduleAdapter(
+    val onClick: () -> Unit
+) : RecyclerView.Adapter<ScheduleViewHolder>() {
 
     private val list = arrayListOf<ScheduleItem>()
 
@@ -47,7 +49,8 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
         else ->
             ScheduleBottomViewHolder(
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_schedule_main_bottom, parent, false)
+                    .inflate(R.layout.item_schedule_main_bottom, parent, false),
+                onClick
             )
     }
 

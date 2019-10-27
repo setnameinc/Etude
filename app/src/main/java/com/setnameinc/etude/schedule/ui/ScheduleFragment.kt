@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.setnameinc.etude.R
 import com.setnameinc.etude.bottommenu.ui.BottomMenuFragment
+import com.setnameinc.etude.mainschedule.ui.ScheduleMainContainer
 import com.setnameinc.etude.mainschedule.ui.ScheduleMainFragment
 import com.setnameinc.etude.topmenu.ui.TopMenuFragment
 
@@ -23,7 +24,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             BottomMenuFragment()
         )?.commit()
         fragmentManager?.beginTransaction()?.replace(R.id.mainComponent,
-            ScheduleMainFragment()
+            ScheduleMainContainer()
         )?.commit()
     }
 
