@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import androidx.multidex.MultiDexApplication
 import com.setnameinc.etude.app.di.AppInjectionModules
 import io.reactivex.plugins.RxJavaPlugins
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.conf.ConfigurableKodein
@@ -25,8 +27,7 @@ class App : MultiDexApplication(), KodeinAware {
 
         setupDependencyInjection()
 
-        /*setupRealm()*/
-
+        setupRealm()
 
         setupTimber()
 
@@ -41,7 +42,7 @@ class App : MultiDexApplication(), KodeinAware {
         Timber.plant(Timber.DebugTree())
     }
 
-    /*private fun setupRealm() {
+    private fun setupRealm() {
 
         Realm.init(this)
 
@@ -50,7 +51,7 @@ class App : MultiDexApplication(), KodeinAware {
             .build()
 
         Realm.setDefaultConfiguration(realmConfiguration)
-    }*/
+    }
 
     private fun setupDependencyInjection() {
         kodein.apply {

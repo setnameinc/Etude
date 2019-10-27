@@ -12,18 +12,17 @@ sealed class ScheduleItem(
     )
 
     data class ScheduleSubjectItem(
-        val name: String,
-        val objectType: String,
-        val classroom: String,
-        val startTime: String,
-        val endTime: String,
+        val name: String?,
+        val classroom: String?,
+        val startTime: String?,
+        val endTime: String?,
         val listOfBaseness:List<ScheduleBusinessItem>
     ) : ScheduleItem(
         type = ScheduleTypes.subjectType
     )
 
     data class ScheduleBusinessItem(
-        val description: String
+        val description: String?
     ) : ScheduleItem(
         type = ScheduleTypes.businessType
     )

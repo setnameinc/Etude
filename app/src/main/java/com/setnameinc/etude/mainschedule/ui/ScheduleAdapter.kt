@@ -49,25 +49,24 @@ class ScheduleAdapter(
 
         private var state: ScheduleSubjectStates = ScheduleSubjectStates.COLLAPSED
 
-        init {
-            view.setOnClickListener {
-                onHeaderClick(
-                    getItem(adapterPosition) as ScheduleItem.ScheduleSubjectItem,
-                    adapterPosition,
-                    state
-                )
-                state = if (state == ScheduleSubjectStates.COLLAPSED) {
-                    ScheduleSubjectStates.EXPANDED
-                } else {
-                    ScheduleSubjectStates.COLLAPSED
-                }
-            }
-        }
 
         override fun bind(item: ScheduleItem) {
             val localeItem = item as ScheduleItem.ScheduleSubjectItem
             if (localeItem.listOfBaseness.isEmpty()){
                 view.sizeTextView.visibility = View.INVISIBLE
+            } else {
+                view.setOnClickListener {
+                    onHeaderClick(
+                        getItem(adapterPosition) as ScheduleItem.ScheduleSubjectItem,
+                        adapterPosition,
+                        state
+                    )
+                    state = if (state == ScheduleSubjectStates.COLLAPSED) {
+                        ScheduleSubjectStates.EXPANDED
+                    } else {
+                        ScheduleSubjectStates.COLLAPSED
+                    }
+                }
             }
         }
     }
