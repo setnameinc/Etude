@@ -68,6 +68,9 @@ class ScheduleAdapter(
                 }
             }
             view.nameTextView.text = item.name
+            view.classroomTextView.text = item.classroom
+            view.startTimeTextView.text = item.startTime
+            view.endTimeTextView.text = item.endTime
         }
     }
 
