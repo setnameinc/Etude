@@ -4,28 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.setnameinc.etude.R
 import kotlinx.android.synthetic.main.item_schedule_main_subject.view.*
 
 class ScheduleAdapter(
-    val onClick: () -> Unit
-) : RecyclerView.Adapter<ScheduleViewHolder>() {
-
-    private val list = arrayListOf<ScheduleItem>()
-
-    fun addList(
-        localeList: List<ScheduleItem>
-    ) {
-        list.apply {
-            clear()
-            addAll(localeList)
-            add(ScheduleItem.ScheduleAddItem())
-        }
-        notifyDataSetChanged()
-    }
-
-    override fun getItemCount(): Int = list.size
+    val onClick: () -> Unit,
+    val onHeaderClick: (ScheduleItem.ScheduleSubjectItem, Int, ScheduleSubjectStates) -> Unit
+) : ListAdapter<ScheduleItem, ScheduleViewHolder>(
+    DateAdapterDiffCallback()
+) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -61,24 +50,16 @@ class ScheduleAdapter(
         private var state: ScheduleSubjectStates = ScheduleSubjectStates.COLLAPSED
 
         init {
-            view.setOnClickListener { it ->
-                val localeItem = list[adapterPosition] as ScheduleItem.ScheduleSubjectItem
-                if (state == ScheduleSubjectStates.COLLAPSED) {
-                    var count = adapterPosition
-                    localeItem.listOfBaseness.forEach {
-                        list.add(++count, it)
-                        notifyItemInserted(count)
-                    }
-                    state = ScheduleSubjectStates.EXPANDED
+            view.setOnClickListener {
+                onHeaderClick(
+                    getItem(adapterPosition) as ScheduleItem.ScheduleSubjectItem,
+                    adapterPosition,
+                    state
+                )
+                state = if (state == ScheduleSubjectStates.COLLAPSED) {
+                    ScheduleSubjectStates.EXPANDED
                 } else {
-                    localeItem.listOfBaseness.forEach {
-                        list.remove(it)
-                    }
-                    notifyItemRangeRemoved(
-                        adapterPosition + 1,
-                        adapterPosition + 1 + localeItem.listOfBaseness.size
-                    )
-                    state = ScheduleSubjectStates.COLLAPSED
+                    ScheduleSubjectStates.COLLAPSED
                 }
             }
         }
@@ -92,10 +73,10 @@ class ScheduleAdapter(
     }
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(getItem(position))
     }
 
-    override fun getItemViewType(position: Int): Int = list[position].type
+    override fun getItemViewType(position: Int): Int = getItem(position).type
 
 }
 
