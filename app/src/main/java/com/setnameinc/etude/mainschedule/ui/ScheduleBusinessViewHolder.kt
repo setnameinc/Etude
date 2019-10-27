@@ -7,5 +7,10 @@ class ScheduleBusinessViewHolder(
 ) : ScheduleViewHolder(view) {
     override fun bind(item: ScheduleItem) {
         //must
+        val localeItem = item as ScheduleItem.ScheduleBusinessItem
+//        if (localeItem.listOfBaseness.isEmpty()){
+//            view.sizeTextView.visibility = View.INVISIBLE
+//        }
+
     }
 }

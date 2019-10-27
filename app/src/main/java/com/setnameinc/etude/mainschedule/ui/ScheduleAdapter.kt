@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.setnameinc.etude.R
 import kotlinx.android.synthetic.main.item_schedule_main_subject.view.*
+import kotlinx.android.synthetic.main.item_schedule_main_header.view.sizeTextView
 
 class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
 
@@ -85,6 +86,12 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleViewHolder>() {
             if (localeItem.listOfBaseness.isEmpty()){
                 view.sizeTextView.visibility = View.INVISIBLE
             }
+            view.nameTextView.text=localeItem.name
+            view.classroomTextView.text=localeItem.classroom
+            view.startTimeTextView.text=localeItem.startTime
+            view.endTimeTextView.text=localeItem.endTime
+//            view.sizeTextView.text=localeItem.size
+
         }
     }
 
