@@ -43,32 +43,32 @@ class BottomMenuFragment : Fragment(R.layout.component_menu_bottom), KodeinAware
         DateItem(
             "28\nоктября",
             "BC3232",
-            1
+            3
         ),
         DateItem(
             "29\nоктября",
             "FFA123",
-            1
+            3
         ),
         DateItem(
             "30\nоктября",
             "6527B7",
-            1
+            3
         ),
         DateItem(
             "31\nоктября",
             "2272AF",
-            1
+            3
         ),
         DateItem(
             "1\nноября",
             "10107A",
-            1
+            3
         ),
         DateItem(
             "2\nноября",
             "BC3232",
-            1
+            3
         )
     )
 

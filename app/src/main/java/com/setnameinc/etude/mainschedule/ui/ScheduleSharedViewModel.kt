@@ -124,8 +124,8 @@ class ScheduleSharedViewModel(
                     dayId,
                     "Русский",
                     "405 лекция",
-                    "9:00",
-                    "10:30",
+                    "10:50",
+                    "12:20",
                     1
                 ),
                 ScheduleSubjectEntity(
@@ -133,8 +133,8 @@ class ScheduleSharedViewModel(
                     dayId,
                     "Английский",
                     "215 лекция",
-                    "9:00",
-                    "10:30",
+                    "12:40",
+                    "14:10",
                     2
                 ),
 

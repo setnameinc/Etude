@@ -8,7 +8,9 @@
     <ImageView
         app:layout_constraintBottom_toBottomOf="parent"
         android:paddingTop="15dp"
-        android:src="@drawable/top_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
