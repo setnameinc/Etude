@@ -23,28 +23,15 @@ class App : MultiDexApplication(), KodeinAware {
     override fun onCreate() {
         super.onCreate()
 
-        /*setupFabric()
-
-        DebugDependencies.initOnAppCreateDependencies(this)*/
-
-//        setupApi()
-
         setupDependencyInjection()
 
         /*setupRealm()*/
 
-        /*setupJodaTime()*/
 
         setupTimber()
 
         setupRx()
     }
-
-//    private fun setupApi() {
-//        if (BuildConfig.DEBUG) {
-//            Configuration.getDefaultApiClient().setVerifyingSsl(false)
-//        }
-//    }
 
     private fun setupRx() {
         RxJavaPlugins.setErrorHandler { Timber.e(it, "Unhandled RxJava exception") }
@@ -64,18 +51,6 @@ class App : MultiDexApplication(), KodeinAware {
 
         Realm.setDefaultConfiguration(realmConfiguration)
     }*/
-
-    private fun setupRoom(){
-
-    }
-
-    /*  private fun setupJodaTime() {
-          JodaTimeAndroid.init(this)
-      }
-
-      private fun setupFabric() {
-          Fabric.with(this, Crashlytics())
-      }*/
 
     private fun setupDependencyInjection() {
         kodein.apply {
