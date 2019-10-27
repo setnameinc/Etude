@@ -49,7 +49,6 @@ class ScheduleAdapter(
 
         private var state: ScheduleSubjectStates = ScheduleSubjectStates.COLLAPSED
 
-
         override fun bind(item: ScheduleItem) {
             val localeItem = item as ScheduleItem.ScheduleSubjectItem
             if (localeItem.listOfBaseness.isEmpty()){
@@ -68,6 +67,7 @@ class ScheduleAdapter(
                     }
                 }
             }
+            view.nameTextView.text = item.name
         }
     }
 

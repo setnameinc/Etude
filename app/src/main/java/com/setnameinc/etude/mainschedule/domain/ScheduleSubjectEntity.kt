@@ -6,7 +6,7 @@ import io.realm.annotations.RealmClass
 @RealmClass
 open class ScheduleSubjectEntity(
     var subjectGroupId:Int = 0,
-    var groupId: Int = 0,
+    var dayId: Int = 0,
     var name: String? = null,
     var classroom: String? = null,
     var startTime: String? = null,

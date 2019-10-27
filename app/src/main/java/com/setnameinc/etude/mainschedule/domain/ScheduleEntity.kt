@@ -8,6 +8,5 @@ import io.realm.annotations.RealmClass
 open class ScheduleEntity(
     @PrimaryKey
     var day : Int = 0,
-    var week : Int = 0,
     var groupId : Int = 0
 ) : RealmModel

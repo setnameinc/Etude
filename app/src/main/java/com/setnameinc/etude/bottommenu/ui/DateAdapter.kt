@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_date.view.*
 import timber.log.Timber
 
 class DateAdapter(
-    val onClick: (DateItem) -> Unit
+    val onClick: (DateItem, Int) -> Unit
 ) : ListAdapter<DateItem, DateAdapter.BottomMenuViewHolder>(DateAdapterDiffCallback()) {
 
     private var currentPosition : Int = 0
@@ -31,6 +31,7 @@ class DateAdapter(
     override fun onBindViewHolder(holder: BottomMenuViewHolder, position: Int) {
         holder.setup(getItem(position))
         if (currentPosition == position) {
+            onClick(getItem(position), position)
             holder.setupSelector()
         } else {
             holder.disableSelector()

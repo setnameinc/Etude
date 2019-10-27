@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/scheduleAddBusinessDestination"
-        android:name="com.setnameinc.etude.mainschedule.ui.ScheduleAddFragment"
+        android:name="com.setnameinc.etude.scheduleadd.ui.ScheduleAddFragment"
         android:label="@layout/fragment_schedule_add"
         tools:layout="@layout/fragment_schedule_add" />
 
